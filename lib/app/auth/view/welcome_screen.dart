@@ -1,9 +1,12 @@
+import 'package:e_commerce_app/app/auth/view/log_in_screen.dart';
+import 'package:e_commerce_app/app/auth/view/sign_up_screen.dart';
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:e_commerce_app/widgets/custom_rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -21,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
               child: IntrinsicHeight(
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 30, horizontal: 100),
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 50),
                   child: Column(
                     children: [
                       RichText(
@@ -55,29 +58,33 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       CustomRoundedButton(
-                        onTap: (){},
+                        onTap: () {
+                          Get.to(LogInScreen());
+                        },
                         width: constrains.maxWidth,
                         gradient: gradient,
                         child: Center(
                           child: CustomText(
                             'Log in',
                             color: Colors.white,
-                            fontSize: defaultSize * 1.5,
+                            fontSize: defaultSize * 1.7,
                           ),
                         ),
                       ),
                       CustomRoundedButton(
-                        onTap: (){},
+                        onTap: () {
+                          Get.to(SignUpScreen());
+                        },
                         width: constrains.maxWidth,
                         color: Colors.transparent,
                         child: Center(
                           child: CustomText(
                             'Signup',
                             color: Colors.black87,
-                            fontSize: defaultSize * 1.5,
+                            fontSize: defaultSize * 1.7,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
