@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/app/home/model/product_model.dart';
 
 class CartModel {
   // ProductModel? productModel;

@@ -1,12 +1,11 @@
 import 'package:e_commerce_app/app/address/model/address_model.dart';
-import 'package:e_commerce_app/constants.dart';
 
 class UserModel {
   String? userId;
   String? email;
   String? name;
-  double? phoneNumber;
-  GENDER? gender;
+  String? phoneNumber;
+  String? gender;
   AddressModel? addressModel;
 
   UserModel(
@@ -24,7 +23,7 @@ class UserModel {
       email = map['email'];
       name = map['name'];
       userId = map['userId'];
-      addressModel = map['addressModel'];
+      addressModel = AddressModel.fromJson(map['addressModel']);
       gender = map['gender'];
       phoneNumber = map['phoneNumber'];
     }
@@ -35,7 +34,7 @@ class UserModel {
       'userId': userId,
       'email': email,
       'name': name,
-      'addressModel': addressModel,
+      'addressModel': addressModel!.toJson(),
       'gender': gender,
       'phoneNumber': phoneNumber
     };

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'custom_text.dart';
 
 class CustomRoundedButton extends StatelessWidget {
   final double width;

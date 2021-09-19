@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "488379470207",
+    "project_id": "e-commerce-redesign",
+    "storage_bucket": "e-commerce-redesign.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488379470207:android:84942ec8dbd483876eca4a",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488379470207-fa13dvchhg0vltrhqjshis9v8bc9s9es.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_commerce_app",
+            "certificate_hash": "a816883845508d1230a7b8af8928fe67bc7ace86"
+          }
+        },
+        {
+          "client_id": "488379470207-2di7gkmeaf340d26t9j3q2rr3dg5lsoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu-SBZHSRTNfLmZESzKQXlmxe2iovFKJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488379470207-2di7gkmeaf340d26t9j3q2rr3dg5lsoh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

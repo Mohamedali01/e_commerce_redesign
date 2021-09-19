@@ -1,13 +1,16 @@
-import 'package:e_commerce_app/app/auth/control/log_in_controller.dart';
-import 'package:e_commerce_app/app/auth/control/sign_up_controller.dart';
-import 'package:e_commerce_app/app/auth/view/log_in_screen.dart';
-import 'package:e_commerce_app/app/auth/view/sign_up_screen.dart';
-import 'package:e_commerce_app/app/auth/view/welcome_screen.dart';
+import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
+import 'package:e_commerce_app/app/auth/control/providers/auth_ui_controller.dart';
+import 'package:e_commerce_app/app/auth/control/providers/forget_password_controller.dart';
+import 'package:e_commerce_app/app/auth/view/controll_screen.dart';
+import 'package:e_commerce_app/app/auth/view/reset_password_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -18,14 +21,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => LogInController()),
-        ChangeNotifierProvider(create: (_) => SignUpController())
+        ChangeNotifierProvider(create: (_) => AuthUiController()),
+        ChangeNotifierProxyProvider(
+          create: (_) => AuthLogicController(),
+          update: (BuildContext context, AuthUiController value,
+              AuthLogicController? previous) {
+            return previous!..update(value.isResetPassActive);
+          },
+        ),
+        ChangeNotifierProvider(create: (_) => ForgetPasswordController()),
       ],
       builder: (context, child) {
         return GetMaterialApp(
           theme: ThemeData(canvasColor: Colors.white),
           debugShowCheckedModeBanner: false,
-          home: WelcomeScreen(),
+          home: ControlScreen(),
         );
       },
     );

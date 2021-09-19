@@ -23,4 +23,14 @@ class AddressModel {
       numberOfRoad = map['numberOfRoad'];
     }
   }
+
+  toJson() {
+    return {
+      'country': country,
+      'city': city,
+      'area': area,
+      'numberOfHouse': numberOfHouse,
+      'numberOfRoad': numberOfRoad,
+    };
+  }
 }

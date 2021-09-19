@@ -1,4 +1,6 @@
-import 'package:e_commerce_app/app/auth/control/log_in_controller.dart';
+import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
+import 'package:e_commerce_app/app/auth/control/providers/auth_ui_controller.dart';
+import 'package:e_commerce_app/app/auth/view/reset_password_screen.dart';
 import 'package:e_commerce_app/app/auth/view/sign_up_screen.dart';
 import 'package:e_commerce_app/app/auth/view/welcome_screen.dart';
 import 'package:e_commerce_app/constants.dart';
@@ -13,9 +15,12 @@ import 'package:provider/provider.dart';
 
 class LogInScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<LogInController>(context);
+    final uiController = Provider.of<AuthUiController>(context);
+    final logicController = Provider.of<AuthLogicController>(context);
+
     SizeConfig().init(context);
     final defaultSize = SizeConfig.defaultSize;
     return Scaffold(
@@ -37,6 +42,7 @@ class LogInScreen extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constrains) {
             return SingleChildScrollView(
+              // physics: BouncingScrollPhysics(),
               child: CustomConstrainedBox(
                 minHeight: constrains.maxHeight,
                 minWidth: constrains.maxWidth,
@@ -63,6 +69,9 @@ class LogInScreen extends StatelessWidget {
                           }
                           return null;
                         },
+                        onSaved: (value) {
+                          logicController.email = value!;
+                        },
                       ),
                       SizedBox(
                         height: defaultSize * 3,
@@ -79,41 +88,81 @@ class LogInScreen extends StatelessWidget {
                           return null;
                         },
                         textInputType: TextInputType.text,
-                        obscure: !controller.isPassVisible,
+                        obscure: !uiController.isLoginPassVisible,
                         suffixIcon: IconButton(
                           onPressed: () {
-                            controller.togglePassVisibility();
+                            uiController.loginTogglePassVisibility();
                           },
                           icon: Icon(
-                            controller.isPassVisible
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                            uiController.isLoginPassVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                             color: Colors.black26,
                           ),
                         ),
+                        onSaved: (value) {
+                          logicController.password = value!;
+                        },
                       ),
                       SizedBox(
                         height: defaultSize * 3,
                       ),
                       CustomRoundedButton(
                         width: constrains.maxWidth,
-                        onTap: () {
-                          _formKey.currentState!.validate();
+                        onTap: () async {
+                          if (_formKey.currentState!.validate()) {
+                            _formKey.currentState!.save();
+                            await logicController.login();
+                          }
                         },
                         gradient: gradient,
                         child: Center(
-                          child: CustomText(
-                            'Log in',
-                            color: Colors.white,
-                            fontSize: defaultSize * 1.7,
-                          ),
+                          child: logicController.isLoginLoading
+                              ? CircularProgressIndicator(
+                                  color: Colors.white,
+                                )
+                              : CustomText(
+                                  'Log in',
+                                  color: Colors.white,
+                                  fontSize: defaultSize * 1.7,
+                                ),
                         ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                  value: uiController.isResetPassActive,
+                                  onChanged: (value) {
+                                    uiController
+                                        .changeResetPassCheckBox(value!);
+                                  }),
+                              CustomText(
+                                'Remember Me?',
+                                color: Colors.black54,
+                                fontSize: defaultSize * 1.5,
+                              ),
+                            ],
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(ResetPasswordScreen());
+                            },
+                            child: CustomText(
+                              'Forgot your password?',
+                              color: Colors.black54,
+                              fontSize: defaultSize * 1.5,
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: defaultSize * 3,
                       ),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           Get.offAll(SignUpScreen());
                         },
                         child: Center(
