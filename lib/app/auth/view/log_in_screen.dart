@@ -134,7 +134,7 @@ class LogInScreen extends StatelessWidget {
                           Row(
                             children: [
                               Checkbox(
-                                  value: uiController.isResetPassActive,
+                                  value: logicController.isRememberPass,
                                   onChanged: (value) {
                                     uiController
                                         .changeResetPassCheckBox(value!);

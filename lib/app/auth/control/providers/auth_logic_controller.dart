@@ -10,7 +10,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../constants.dart';
 
 class AuthLogicController with ChangeNotifier {
@@ -152,8 +151,6 @@ class AuthLogicController with ChangeNotifier {
       await _auth.signOut();
       await AuthLocalDatabase.clear();
       _clearData();
-      _isLogOutLoading = false;
-      notifyListeners();
       Get.offAll(WelcomeScreen());
     } on Exception catch (e) {
       buildSnackBar('Error!', 'An error occurred');
@@ -169,6 +166,8 @@ class AuthLogicController with ChangeNotifier {
     phoneNumber = '';
     gender = 'KNOWN';
     addressModel = null;
+    _isRememberPass = false;
+    _isLogOutLoading = false;
     notifyListeners();
   }
 

@@ -1,6 +1,4 @@
 import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
-import 'package:e_commerce_app/app/auth/control/providers/auth_ui_controller.dart';
-import 'package:e_commerce_app/app/auth/view/sign_up_screen.dart';
 import 'package:e_commerce_app/app/auth/view/welcome_screen.dart';
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/size_config.dart';

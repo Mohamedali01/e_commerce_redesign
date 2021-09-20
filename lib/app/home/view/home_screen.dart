@@ -9,12 +9,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final logicController = Provider.of<AuthLogicController>(context);
     return Scaffold(
-      appBar: AppBar(title: Text('HomeScreen'),
-      actions: [
-        IconButton(onPressed: ()async{
-          await logicController.logout();
-        }, icon: Icon(Icons.logout))
-      ],
+      appBar: AppBar(
+        title: Text('HomeScreen'),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await logicController.logout();
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
       ),
     );
   }
