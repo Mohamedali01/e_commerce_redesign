@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/core/size_config.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
