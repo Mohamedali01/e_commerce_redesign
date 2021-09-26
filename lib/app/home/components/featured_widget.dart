@@ -16,7 +16,7 @@ class FeaturedWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: SizeConfig.screenHeight * 0.35,
+      height: SizeConfig.screenWidth * 0.55,
       width: SizeConfig.screenWidth,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
@@ -31,24 +31,31 @@ class FeaturedWidgets extends StatelessWidget {
             width: SizeConfig.screenWidth * 0.4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                      homeController.productModels[index].productImage!),
-                  SizedBox(
-                    height: defaultSize,
-                  ),
-                  CustomText(
-                    '\$${homeController.productModels[index].price!.toStringAsFixed(2)}',
-                    fontSize: defaultSize * 1.7,
-                  ),
-                  FittedBox(
-                    child: CustomText(
-                        homeController.productModels[index].title!,
-                        fontSize: defaultSize * 1.7),
-                  )
-                ],
+              child: FittedBox(
+                fit: BoxFit.fill,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                        homeController.productModels[index].productImage!,
+                      fit: BoxFit.fill,
+                    ),
+                    SizedBox(
+                      height: defaultSize,
+                    ),
+                    FittedBox(
+                      child: CustomText(
+                        '\$${homeController.productModels[index].price!.toStringAsFixed(2)}',
+                        fontSize: 30,
+                      ),
+                    ),
+                    FittedBox(
+                      child: CustomText(
+                          homeController.productModels[index].title!,
+                          fontSize: 30),
+                    )
+                  ],
+                ),
               ),
             ),
           );

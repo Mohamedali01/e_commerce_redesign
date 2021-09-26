@@ -3,60 +3,72 @@ import 'package:e_commerce_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class SearchWidget extends StatelessWidget {
-
   final BoxConstraints? constraints;
-
 
   const SearchWidget({this.constraints});
 
   @override
   Widget build(BuildContext context) {
+    final defaultSize = SizeConfig.defaultSize;
     return Container(
-      height: SizeConfig.screenHeight * 0.07,
+      width: constraints!.maxWidth,
+      height: SizeConfig.screenHeight * 0.065,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-              color: Colors.grey.shade300,
-              blurRadius: 6,
-              spreadRadius: 1),
+            color: Colors.grey.shade300,
+            blurRadius: 2,
+          ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: 10, vertical: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                SizedBox(
-                  width: constraints!.maxWidth * 0.1,
-                  child: Icon(
+      child: LayoutBuilder(
+        builder: (context, cons) {
+          return FittedBox(
+            fit: BoxFit.fill,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: SizedBox(
+                width: cons.maxWidth,
+                height: cons.maxHeight,
+
+                child: ListTile(
+                  leading: Icon(
                     Icons.search,
-                    color: Colors.black38,
-                    size: 35,
+                    size: cons.maxHeight*0.7,
+                  ),
+                  title: Center(
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: cons.maxHeight*0.8,
+                          child: VerticalDivider(
+                            thickness: 1,
+                            width: 20,
+                          ),
+                        ),
+                        Expanded(
+                          child: SizedBox(
+                            height: cons.maxHeight,
+                            child: Center(
+                              child: CustomTextFormField(
+                                inputBorder: InputBorder.none,
+                                defaultSize: defaultSize,
+                                hintText: 'Search Your Product',
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(
-                  width: 10,
-                ),
-                VerticalDivider(
-                  color: Colors.grey.shade300,
-                  thickness: 1,
-                ),
-              ],
+              ),
             ),
-            SizedBox(
-              width: constraints!.maxWidth * 0.65,
-              child: CustomTextFormField(
-                  inputBorder: InputBorder.none,
-                  hintText: 'Search Your Product'),
-            ),
-          ],
-        ),
+          );
+        }
       ),
     );
   }
 }
-

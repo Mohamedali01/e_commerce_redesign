@@ -15,28 +15,36 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: SizeConfig.screenWidth * 0.35,
-      height: SizeConfig.screenHeight*0.1,
+      width: SizeConfig.screenWidth * 0.36,
+      height: SizeConfig.screenWidth*0.2,
+
       child: ClipRRect(
         borderRadius: BorderRadius.circular(5),
         child: Stack(
           children: [
             Image.asset(
               image!,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
+              width: SizeConfig.screenWidth * 0.36,
+              height: SizeConfig.screenWidth*0.2,
+
             ),
             Container(
               color: color,
-              width: SizeConfig.screenWidth * 0.35,
-              height: SizeConfig.screenHeight*0.1,
+              width: SizeConfig.screenWidth * 0.36,
+              height: SizeConfig.screenWidth*0.2,
 
             ),
-            Center(
-              child: CustomText(
-                categoryName!,
-                color: Colors.white,
-                fontSize: defaultSize! * 2,
-                fontWeight: FontWeight.bold,
+            SizedBox(
+              width: SizeConfig.screenWidth * 0.36,
+              height: SizeConfig.screenWidth*0.2,
+              child: Center(
+                child: CustomText(
+                  categoryName!,
+                  color: Colors.white,
+                  fontSize: defaultSize! * 2,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],

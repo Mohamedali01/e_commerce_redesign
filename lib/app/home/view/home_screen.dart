@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
 import 'package:e_commerce_app/app/home/components/categories.dart';
 import 'package:e_commerce_app/app/home/components/featured_widget.dart';
 import 'package:e_commerce_app/app/home/components/row_text_widget.dart';
@@ -6,7 +5,6 @@ import 'package:e_commerce_app/app/home/components/search_widget.dart';
 import 'package:e_commerce_app/app/home/control/home_controller.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_constrained_box.dart';
-import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +34,9 @@ class HomeScreen extends StatelessWidget {
       ),
       body: LayoutBuilder(builder: (context, constrains) {
         return SingleChildScrollView(
-          child: CustomConstrainedBox(
+           physics: BouncingScrollPhysics(),
+
+        child: CustomConstrainedBox(
             minHeight: constrains.maxHeight,
             minWidth: constrains.maxWidth,
             child: Padding(
@@ -71,6 +71,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   FeaturedWidgets(
                       defaultSize: defaultSize, homeController: homeController),
+                  SizedBox(
+                    height: defaultSize *4,
+                  ),
+
                   RowTextWidget(
                     defaultSize: defaultSize,
                     firstText: 'Best Sell',
