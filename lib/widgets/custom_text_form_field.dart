@@ -7,6 +7,8 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscure;
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final InputBorder? inputBorder;
+  final String? hintText;
 
   CustomTextFormField(
       {this.label,
@@ -14,7 +16,9 @@ class CustomTextFormField extends StatelessWidget {
       this.suffixIcon,
       this.obscure = false,
       this.validator,
-      this.onSaved});
+      this.onSaved
+      ,this.inputBorder,
+      this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +27,12 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscure,
       onSaved: onSaved,
       validator: validator,
+      style: TextStyle(fontSize: 18),
       decoration: InputDecoration(
+        hintText: hintText,
         suffixIcon: suffixIcon,
+        border: inputBorder,
+
         labelText: label,
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),

@@ -11,23 +11,26 @@ class ProductModel {
   double? salePrice;
   double? rating;
   int? numberOfReviews;
+  int? numberInTheStock;
+  int? numberSold;
   Color? color;
   List<SIZE>? size;
-  List<CATEGORY>? category;
+  CATEGORY? category;
 
-  ProductModel(
-      {this.productId,
-      this.ownerName,
-      this.title,
-      this.description,
-      this.productImage,
-      this.price,
-      this.salePrice,
-      this.rating,
-      this.numberOfReviews,
-      this.color,
-      this.size,
-      this.category});
+  ProductModel({this.productId,
+    this.ownerName,
+    this.title,
+    this.description,
+    this.productImage,
+    this.price,
+    this.salePrice,
+    this.rating,
+    this.numberOfReviews,
+    this.numberInTheStock,
+    this.numberSold,
+    this.color,
+    this.size,
+    this.category});
 
   ProductModel.fromJson(Map<dynamic, dynamic>? map) {
     if (map == null)
@@ -42,6 +45,8 @@ class ProductModel {
       salePrice = map['salePrice'];
       rating = map['rating'];
       numberOfReviews = map['numberOfReviews'];
+      numberInTheStock = map['numberInTheStock'];
+      numberSold = map['numberSold'];
       color = map['color'];
       size = map['size'];
       category = map['category'];

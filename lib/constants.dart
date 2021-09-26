@@ -24,7 +24,7 @@ buildSnackBar(String title, String text) {
     ),
   );
 }
-
+final color = Colors.blueAccent;
 buildFlutterToast(String msg) {
   Fluttertoast.showToast(msg: msg, backgroundColor: Colors.grey);
 }

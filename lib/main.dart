@@ -2,7 +2,7 @@ import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.
 import 'package:e_commerce_app/app/auth/control/providers/auth_ui_controller.dart';
 import 'package:e_commerce_app/app/auth/control/providers/forget_password_controller.dart';
 import 'package:e_commerce_app/app/auth/view/controll_screen.dart';
-import 'package:e_commerce_app/app/auth/view/reset_password_screen.dart';
+import 'package:e_commerce_app/app/home/control/home_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,6 +30,8 @@ class MyApp extends StatelessWidget {
           },
         ),
         ChangeNotifierProvider(create: (_) => ForgetPasswordController()),
+        ChangeNotifierProvider(create: (_) => HomeController()),
+
       ],
       builder: (context, child) {
         return GetMaterialApp(
