@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final InputBorder? inputBorder;
   final String? hintText;
-  final double? defaultSize;
+  final double? fontSize;
 
   CustomTextFormField(
       {this.label,
@@ -20,7 +20,7 @@ class CustomTextFormField extends StatelessWidget {
       this.onSaved
       ,this.inputBorder,
       this.hintText,
-      this.defaultSize});
+      this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,10 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscure,
       onSaved: onSaved,
       validator: validator,
-      style: TextStyle(fontSize: 18),
+      style: TextStyle(fontSize: fontSize),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(fontSize: defaultSize!*2.2,color: Colors.black45),
+        hintStyle: TextStyle(fontSize: fontSize,color: Colors.black45),
         suffixIcon: suffixIcon,
         border: inputBorder,
         labelText: label,

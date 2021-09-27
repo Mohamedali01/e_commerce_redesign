@@ -3,10 +3,12 @@ import 'package:e_commerce_app/app/home/components/featured_widget.dart';
 import 'package:e_commerce_app/app/home/components/row_text_widget.dart';
 import 'package:e_commerce_app/app/home/components/search_widget.dart';
 import 'package:e_commerce_app/app/home/control/home_controller.dart';
+import 'package:e_commerce_app/app/home/view/featured_screen.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_constrained_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -34,9 +36,8 @@ class HomeScreen extends StatelessWidget {
       ),
       body: LayoutBuilder(builder: (context, constrains) {
         return SingleChildScrollView(
-           physics: BouncingScrollPhysics(),
-
-        child: CustomConstrainedBox(
+          physics: BouncingScrollPhysics(),
+          child: CustomConstrainedBox(
             minHeight: constrains.maxHeight,
             minWidth: constrains.maxWidth,
             child: Padding(
@@ -65,6 +66,9 @@ class HomeScreen extends StatelessWidget {
                     defaultSize: defaultSize,
                     firstText: 'Featured',
                     secondText: 'See all',
+                    onTap: () {
+                      Get.to(FeaturedScreen());
+                    },
                   ),
                   SizedBox(
                     height: defaultSize * 2,
@@ -72,9 +76,8 @@ class HomeScreen extends StatelessWidget {
                   FeaturedWidgets(
                       defaultSize: defaultSize, homeController: homeController),
                   SizedBox(
-                    height: defaultSize *4,
+                    height: defaultSize * 4,
                   ),
-
                   RowTextWidget(
                     defaultSize: defaultSize,
                     firstText: 'Best Sell',

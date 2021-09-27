@@ -54,7 +54,7 @@ class SearchWidget extends StatelessWidget {
                             child: Center(
                               child: CustomTextFormField(
                                 inputBorder: InputBorder.none,
-                                defaultSize: defaultSize,
+                                fontSize: defaultSize*2.4,
                                 hintText: 'Search Your Product',
                               ),
                             ),

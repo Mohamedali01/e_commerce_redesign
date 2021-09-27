@@ -58,6 +58,7 @@ class LogInScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       CustomTextFormField(
+                        fontSize: defaultSize*1.6,
                         label: 'Email',
                         textInputType: TextInputType.text,
                         validator: (value) {
@@ -77,6 +78,7 @@ class LogInScreen extends StatelessWidget {
                         height: defaultSize * 3,
                       ),
                       CustomTextFormField(
+                        fontSize: defaultSize*1.6,
                         label: 'Password',
                         validator: (value) {
                           if (value!.isEmpty) {
