@@ -6,7 +6,7 @@ class ProductModel {
   String? ownerName;
   String? title;
   String? description;
-  String? productImage;
+  List<String>? productImages;
   double? price;
   double? salePrice;
   double? rating;
@@ -21,7 +21,7 @@ class ProductModel {
     this.ownerName,
     this.title,
     this.description,
-    this.productImage,
+    this.productImages,
     this.price,
     this.salePrice,
     this.rating,
@@ -40,7 +40,7 @@ class ProductModel {
       ownerName = map['ownerName'];
       title = map['title'];
       description = map['description'];
-      productImage = map['productImage'];
+      productImages = map['productImage'];
       price = map['price'];
       salePrice = map['salePrice'];
       rating = map['rating'];

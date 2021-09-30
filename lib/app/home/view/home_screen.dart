@@ -3,6 +3,7 @@ import 'package:e_commerce_app/app/home/components/featured_widget.dart';
 import 'package:e_commerce_app/app/home/components/row_text_widget.dart';
 import 'package:e_commerce_app/app/home/components/search_widget.dart';
 import 'package:e_commerce_app/app/home/control/home_controller.dart';
+import 'package:e_commerce_app/app/home/view/best_sell_screen.dart';
 import 'package:e_commerce_app/app/home/view/featured_screen.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_constrained_box.dart';
@@ -17,7 +18,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    // final logicController = Provider.of<AuthLogicController>(context);
     final homeController = Provider.of<HomeController>(context);
     final defaultSize = SizeConfig.defaultSize;
     return Scaffold(
@@ -82,6 +82,9 @@ class HomeScreen extends StatelessWidget {
                     defaultSize: defaultSize,
                     firstText: 'Best Sell',
                     secondText: 'See all',
+                    onTap: (){
+                      Get.to(BestSellScreen());
+                    },
                   ),
                   SizedBox(
                     height: defaultSize * 2,

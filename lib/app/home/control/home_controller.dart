@@ -3,11 +3,34 @@ import 'package:e_commerce_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeController with ChangeNotifier {
+
   List<ProductModel> _productModels = [
     ProductModel(
       color: Colors.blue,
-      description: 'This is a very nice shirt',
-      price: 34,
+      description: 'A wonderful serenity has taken possession '
+          'of my entire soul, like these sweet mornings '
+          'of spring which I enjoy with my whole heart. '
+          'I am alone, and feel the charm of existence '
+          'in this spot, which was created for the bliss '
+          'of souls like mine.'
+          'A wonderful serenity has taken possession'
+          'of my entire soul, like these sweet mornings '
+          'of spring which I enjoy with my whole heart. '
+          'I am alone, and feel the charm of existence '
+          'in this spot, which was created for the bliss '
+          'of souls like mine.A wonderful serenity has taken possession '
+          'of my entire soul, like these sweet mornings '
+          'of spring which I enjoy with my whole heart. '
+          'I am alone, and feel the charm of existence '
+          'in this spot, which was created for the bliss '
+          'of souls like mine.'
+          'A wonderful serenity has taken possession'
+          'of my entire soul, like these sweet mornings '
+          'of spring which I enjoy with my whole heart. '
+          'I am alone, and feel the charm of existence '
+          'in this spot, which was created for the bliss '
+          'of souls like mine.',
+      price: 35,
       salePrice: 34,
       category: CATEGORY.MALE,
       size: [SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE, SIZE.XLARGE],
@@ -17,12 +40,17 @@ class HomeController with ChangeNotifier {
       numberSold: 122,
       ownerName: 'Ahmed',
       productId: 'ahmedId',
-      productImage: 'assets/images/product_sample_1.png',
-      title:'Man T-Shirt',
+      productImages: [
+        'assets/images/product_sample_1.png',
+        'assets/images/product_sample_2.png',
+        'assets/images/product_sample_1.png'
+      ],
+      title: 'Man T-Shirt',
     ),
     ProductModel(
       color: Colors.red,
-      description: 'This is a very nice shirt',
+      description:
+          'This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt ',
       price: 55,
       salePrice: 55,
       category: CATEGORY.FEMALE,
@@ -33,12 +61,16 @@ class HomeController with ChangeNotifier {
       numberSold: 12,
       ownerName: 'Mohamed',
       productId: 'mohamedId',
-      productImage: 'assets/images/product_sample_2.png',
-      title:'Woman T-Shirt',
+      productImages: ['assets/images/product_sample_2.png',
+        'assets/images/product_sample_1.png',
+        'assets/images/product_sample_3.png'
+      ],
+      title: 'Woman T-Shirt',
     ),
     ProductModel(
       color: Colors.lightBlue,
-      description: 'This is a very nice shirt',
+      description:
+          'This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt ',
       price: 34,
       salePrice: 34,
       category: CATEGORY.FEMALE,
@@ -49,12 +81,13 @@ class HomeController with ChangeNotifier {
       numberSold: 12,
       ownerName: 'Khaled',
       productId: 'khaledId',
-      productImage: 'assets/images/product_sample_3.png',
-      title:'Woman T-Shirt',
+      productImages: ['assets/images/product_sample_3.png'],
+      title: 'Woman T-Shirt',
     ),
     ProductModel(
       color: Colors.blue,
-      description: 'This is a very nice shirt',
+      description:
+          'This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt ',
       price: 34,
       salePrice: 34,
       category: CATEGORY.MALE,
@@ -65,12 +98,13 @@ class HomeController with ChangeNotifier {
       numberSold: 122,
       ownerName: 'Ahmed',
       productId: 'ahmedId',
-      productImage: 'assets/images/product_sample_1.png',
-      title:'Man T-Shirt',
+      productImages: ['assets/images/product_sample_1.png'],
+      title: 'Man T-Shirt',
     ),
     ProductModel(
       color: Colors.red,
-      description: 'This is a very nice shirt',
+      description:
+          'This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt ',
       price: 55,
       salePrice: 55,
       category: CATEGORY.FEMALE,
@@ -81,12 +115,13 @@ class HomeController with ChangeNotifier {
       numberSold: 12,
       ownerName: 'Mohamed',
       productId: 'mohamedId',
-      productImage: 'assets/images/product_sample_2.png',
-      title:'Woman T-Shirt',
+      productImages: ['assets/images/product_sample_2.png'],
+      title: 'Woman T-Shirt',
     ),
     ProductModel(
       color: Colors.lightBlue,
-      description: 'This is a very nice shirt',
+      description:
+          'This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt This is a very nice shirt ',
       price: 34,
       salePrice: 34,
       category: CATEGORY.FEMALE,
@@ -97,10 +132,11 @@ class HomeController with ChangeNotifier {
       numberSold: 12,
       ownerName: 'Khaled',
       productId: 'khaledId',
-      productImage: 'assets/images/product_sample_3.png',
-      title:'Woman T-Shirt',
+      productImages: ['assets/images/product_sample_3.png'],
+      title: 'Woman T-Shirt',
     ),
   ];
 
   List<ProductModel> get productModels => _productModels;
+
 }

@@ -3,15 +3,14 @@ import 'package:e_commerce_app/app/home/view/product_details_screen.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
-class FeaturedScreen extends StatelessWidget {
-  const FeaturedScreen({Key? key}) : super(key: key);
+class BestSellScreen extends StatelessWidget {
+  const BestSellScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     final defaultSize = SizeConfig.defaultSize;
     final homeController = Provider.of<HomeController>(context);
     return Scaffold(
@@ -41,7 +40,7 @@ class FeaturedScreen extends StatelessWidget {
                   SizedBox(
                     height: constrains.maxHeight * 0.06,
                     child: CustomText(
-                      'Featured',
+                      'Best Sell',
                       color: Colors.black87,
                       fontSize: constrains.maxHeight * 0.05,
                     ),
@@ -61,7 +60,9 @@ class FeaturedScreen extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                           onTap: () {
-                            Get.to(ProductDetailsScreen(productModel: homeController.productModels[index],));
+                            Get.to(ProductDetailsScreen(
+                                productModel:
+                                    homeController.productModels[index]));
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),

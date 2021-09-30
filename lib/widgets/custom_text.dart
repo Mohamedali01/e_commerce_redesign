@@ -7,9 +7,17 @@ class CustomText extends StatelessWidget {
   final double? fontSize;
   final double? width;
   final double? height;
+  final bool? lineThrough;
+  final int? maxLines;
 
   CustomText(this.text,
-      {this.color, this.fontWeight, this.fontSize, this.width, this.height});
+      {this.color,
+      this.fontWeight,
+      this.fontSize,
+      this.width,
+      this.height,
+      this.lineThrough = false,
+      this.maxLines});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +26,16 @@ class CustomText extends StatelessWidget {
       height: height,
       child: Text(
         text,
-        style:
-            TextStyle(color: color, fontWeight: fontWeight, fontSize: fontSize),
+
+        maxLines: maxLines,
+        style: TextStyle(
+
+            color: color,
+            fontWeight: fontWeight,
+            fontSize: fontSize,
+            decoration:
+                lineThrough == true ? TextDecoration.lineThrough : null,
+        ),
       ),
     );
   }

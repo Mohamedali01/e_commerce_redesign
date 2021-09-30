@@ -4,6 +4,7 @@ import 'package:e_commerce_app/app/auth/control/providers/auth_ui_controller.dar
 import 'package:e_commerce_app/app/auth/control/providers/forget_password_controller.dart';
 import 'package:e_commerce_app/app/auth/view/control_screen.dart';
 import 'package:e_commerce_app/app/home/control/home_controller.dart';
+import 'package:e_commerce_app/app/home/control/product_details_controller.dart';
 import 'package:e_commerce_app/app/home/view/featured_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -19,13 +20,14 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  // runApp(DevicePreview(
-  //   enabled: !kReleaseMode,
-  //   builder: (context) => MyApp(),
-  // ),
+  // runApp(
+  //   DevicePreview(
+  //     enabled: !kReleaseMode,
+  //     builder: (context) => MyApp(),
+  //   ),
   // );
 
-runApp(MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -45,16 +47,18 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(create: (_) => ForgetPasswordController()),
         ChangeNotifierProvider(create: (_) => HomeController()),
-
+        ChangeNotifierProvider(create: (_) => ProductDetailsController()),
       ],
       builder: (context, child) {
         return GetMaterialApp(
-          locale: DevicePreview.locale(context), // Add the locale here
-          builder: DevicePreview.appBuilder, // Add the builder here
+          locale: DevicePreview.locale(context),
+          // Add the locale here
+          builder: DevicePreview.appBuilder,
+          // Add the builder here
           theme: ThemeData(canvasColor: Colors.white),
           debugShowCheckedModeBanner: false,
           // home: ControlScreen(),
-        home: ControlScreen(),
+          home: ControlScreen(),
         );
       },
     );

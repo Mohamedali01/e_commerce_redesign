@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-enum SIZE { SMALL, MEDIUM, LARGE, XLARGE, XXLARGE, XXXLARGE }
+
+const kPrimaryColor = 0xff667EEA;
+
+
+
+enum SIZE { SMALL, MEDIUM, LARGE, XLARGE, XXLARGE }
 
 enum CATEGORY { MALE, FEMALE, KIDS }
 
