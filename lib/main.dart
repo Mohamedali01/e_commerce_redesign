@@ -47,7 +47,13 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(create: (_) => ForgetPasswordController()),
         ChangeNotifierProvider(create: (_) => HomeController()),
-        ChangeNotifierProvider(create: (_) => ProductDetailsController()),
+        ChangeNotifierProxyProvider(
+          create: (_) => ProductDetailsController(),
+          update: (BuildContext context, HomeController value,
+              ProductDetailsController? previous) {
+            return previous!..update(value.favouritesModels);
+          },
+        ),
       ],
       builder: (context, child) {
         return GetMaterialApp(

@@ -1,21 +1,24 @@
+import 'package:e_commerce_app/app/home/model/product_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
 class ProductDetailsController with ChangeNotifier {
+
+
+  /// UI HANDLING
   bool _isReadMore = false;
   int _selectedPage = 0;
-
-  int get selectedPage => _selectedPage;
-
-  PageController? _pageController;
-
-  PageController? get pageController => _pageController;
 
   ProductDetailsController() {
     _pageController = PageController(initialPage: 0);
   }
 
+
+  int get selectedPage => _selectedPage;
+
+  PageController? _pageController;
+  PageController? get pageController => _pageController;
   bool get isReadMore => _isReadMore;
   List<bool> _sizes = [false, false, false, false, false];
 
@@ -84,6 +87,21 @@ class ProductDetailsController with ChangeNotifier {
 
   changePage(int page) {
     _selectedPage = page;
+    notifyListeners();
+  }
+
+
+
+
+  /// LOGIC HANDLING
+  List<ProductModel> _productModels = [];
+  // List<ProductModel> _favoritesModels = [];
+  //
+  // List<ProductModel> get favoritesModels => _favoritesModels;
+
+
+  void update(List<ProductModel> list) {
+    _productModels = list;
     notifyListeners();
   }
 }

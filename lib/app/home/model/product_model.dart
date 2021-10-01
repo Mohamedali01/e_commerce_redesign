@@ -13,6 +13,8 @@ class ProductModel {
   int? numberOfReviews;
   int? numberInTheStock;
   int? numberSold;
+  bool? isFav =false;
+  bool? inCart= false;
   Color? color;
   List<SIZE>? size;
   CATEGORY? category;
@@ -52,4 +54,5 @@ class ProductModel {
       category = map['category'];
     }
   }
+
 }

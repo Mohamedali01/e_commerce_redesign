@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:flutter/material.dart';
 
-import 'category_widget.dart';
+import '../small widgets/category_widget.dart';
 class Categories extends StatelessWidget {
   const Categories({
     Key? key,

@@ -3,7 +3,7 @@ import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../../constants.dart';
 
 class RatingWidget extends StatelessWidget {
   const RatingWidget({
@@ -19,7 +19,7 @@ class RatingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: SizeConfig.screenHeight * 0.075,
+      height: SizeConfig.screenWidth * 0.17,
       decoration: BoxDecoration(
         border: Border.all(
           width: 1,

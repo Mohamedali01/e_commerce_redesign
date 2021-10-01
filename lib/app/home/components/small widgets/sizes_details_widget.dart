@@ -1,8 +1,9 @@
-import 'package:e_commerce_app/app/home/components/size_container_widget.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/size_container_widget.dart';
 import 'package:e_commerce_app/app/home/control/product_details_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../../constants.dart';
+
 
 class SizesDetailsWidget extends StatelessWidget {
   final ProductDetailsController productDetailsController;

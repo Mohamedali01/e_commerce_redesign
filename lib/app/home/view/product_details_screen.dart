@@ -1,11 +1,9 @@
-import 'package:e_commerce_app/app/home/components/buy_now_button.dart';
-import 'package:e_commerce_app/app/home/components/description_widget.dart';
-import 'package:e_commerce_app/app/home/components/full_image_screen.dart';
-import 'package:e_commerce_app/app/home/components/image_product_details_widget.dart';
-import 'package:e_commerce_app/app/home/components/product_details_title_and_price.dart';
-import 'package:e_commerce_app/app/home/components/rating_widget.dart';
-import 'package:e_commerce_app/app/home/components/size_container_widget.dart';
-import 'package:e_commerce_app/app/home/components/sizes_details_widget.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/buy_now_button.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/description_widget.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/image_product_details_widget.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/product_details_title_and_price.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/rating_widget.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/sizes_details_widget.dart';
 import 'package:e_commerce_app/app/home/control/product_details_controller.dart';
 import 'package:e_commerce_app/app/home/model/product_model.dart';
 import 'package:e_commerce_app/core/size_config.dart';
@@ -25,65 +23,65 @@ class ProductDetailsScreen extends StatelessWidget {
     final productDetailsController =
         Provider.of<ProductDetailsController>(context);
     return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            ImageProductDetailsWidget(
-              productDetailsController: productDetailsController,
-              productModel: productModel,
-              defaultSize: defaultSize,
+      body: CustomScrollView(
+        slivers: [
+          ImageProductDetailsWidget(
+            productDetailsController: productDetailsController,
+            productModel: productModel,
+            defaultSize: defaultSize,
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ProductDetailsTitleAndPrice(
+                        productModel: productModel, defaultSize: defaultSize),
+                    RatingWidget(
+                      productModel: productModel,
+                      defaultSize: defaultSize,
+                    ),
+                    DescriptionWidget(defaultSize: defaultSize, productModel: productModel),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey.shade300,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CustomText(
+                            'Select Size',
+                            fontWeight: FontWeight.bold,
+                            fontSize: defaultSize * 2,
+                          ),
+                          CustomText(
+                            'Select Color',
+                            fontSize: defaultSize * 2,
+                          )
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey.shade300,
+                    ),
+                    SizesDetailsWidget(
+                      productDetailsController: productDetailsController,
+                      defaultSize: defaultSize,
+                    ),
+                    SizedBox(height: defaultSize*5,),
+                    Align(
+                        alignment: Alignment.bottomCenter,
+                        child: BuyNowButton(defaultSize: defaultSize))
+                  ],
+                ),
+              ],
             ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ProductDetailsTitleAndPrice(
-                          productModel: productModel, defaultSize: defaultSize),
-                      RatingWidget(
-                        productModel: productModel,
-                        defaultSize: defaultSize,
-                      ),
-                      DescriptionWidget(defaultSize: defaultSize, productModel: productModel),
-                      Divider(
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CustomText(
-                              'Select Size',
-                              fontWeight: FontWeight.bold,
-                              fontSize: defaultSize * 2,
-                            ),
-                            CustomText(
-                              'Select Color',
-                              fontSize: defaultSize * 2,
-                            )
-                          ],
-                        ),
-                      ),
-                      Divider(
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                      SizesDetailsWidget(
-                        productDetailsController: productDetailsController,
-                        defaultSize: defaultSize,
-                      ),
-                      BuyNowButton(defaultSize: defaultSize)
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,7 +1,10 @@
-import 'package:e_commerce_app/app/home/components/categories.dart';
-import 'package:e_commerce_app/app/home/components/featured_widget.dart';
-import 'package:e_commerce_app/app/home/components/row_text_widget.dart';
-import 'package:e_commerce_app/app/home/components/search_widget.dart';
+import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
+import 'package:e_commerce_app/app/home/components/icons/cart_icon_badge.dart';
+import 'package:e_commerce_app/app/home/components/icons/favourites_icon.dart';
+import 'package:e_commerce_app/app/home/components/large%20widgets/categories.dart';
+import 'package:e_commerce_app/app/home/components/large%20widgets/featured_widget.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/row_text_widget.dart';
+import 'package:e_commerce_app/app/home/components/small%20widgets/search_widget.dart';
 import 'package:e_commerce_app/app/home/control/home_controller.dart';
 import 'package:e_commerce_app/app/home/view/best_sell_screen.dart';
 import 'package:e_commerce_app/app/home/view/featured_screen.dart';
@@ -19,6 +22,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     final homeController = Provider.of<HomeController>(context);
+    final authCont = Provider.of<AuthLogicController>(context);
     final defaultSize = SizeConfig.defaultSize;
     return Scaffold(
       appBar: AppBar(
@@ -33,6 +37,10 @@ class HomeScreen extends StatelessWidget {
             size: 30,
           ),
         ),
+        actions: [
+          FavouritesIcon(),
+          CartIconBadge(),
+        ],
       ),
       body: LayoutBuilder(builder: (context, constrains) {
         return SingleChildScrollView(
@@ -82,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                     defaultSize: defaultSize,
                     firstText: 'Best Sell',
                     secondText: 'See all',
-                    onTap: (){
+                    onTap: () {
                       Get.to(BestSellScreen());
                     },
                   ),
@@ -100,3 +108,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+

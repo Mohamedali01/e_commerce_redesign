@@ -30,82 +30,88 @@ class BestSellScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0.0,
         ),
-        body: Padding(
-          padding: EdgeInsets.only(top: 10, left: 30, right: 30),
-          child: LayoutBuilder(builder: (context, constrains) {
-            return SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: constrains.maxHeight * 0.06,
-                    child: CustomText(
-                      'Best Sell',
-                      color: Colors.black87,
-                      fontSize: constrains.maxHeight * 0.05,
-                    ),
-                  ),
-                  SizedBox(
-                    height: constrains.maxHeight * 0.04,
-                  ),
-                  SizedBox(
-                    height: constrains.maxHeight * 0.9,
-                    child: GridView.builder(
-                      itemCount: homeController.productModels.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 2 / 3,
-                          crossAxisSpacing: defaultSize * 2,
-                          mainAxisSpacing: defaultSize * 2,
-                          crossAxisCount: 2),
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Get.to(ProductDetailsScreen(
-                                productModel:
-                                    homeController.productModels[index]));
-                          },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: FittedBox(
-                              fit: BoxFit.fill,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Image.asset(
-                                    homeController
-                                        .productModels[index].productImages![0],
+        body: homeController.productModels.isEmpty
+            ? Center(
+                child: CustomText('No Products yet'),
+              )
+            : Padding(
+                padding: EdgeInsets.only(top: 10, left: 30, right: 30),
+                child: LayoutBuilder(builder: (context, constrains) {
+                  return SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: constrains.maxHeight * 0.06,
+                          child: CustomText(
+                            'Best Sell',
+                            color: Colors.black87,
+                            fontSize: constrains.maxHeight * 0.05,
+                          ),
+                        ),
+                        SizedBox(
+                          height: constrains.maxHeight * 0.04,
+                        ),
+                        SizedBox(
+                          height: constrains.maxHeight * 0.9,
+                          child: GridView.builder(
+                            itemCount: homeController.productModels.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    childAspectRatio: 2 / 3,
+                                    crossAxisSpacing: defaultSize * 2,
+                                    mainAxisSpacing: defaultSize * 2,
+                                    crossAxisCount: 2),
+                            itemBuilder: (BuildContext context, int index) {
+                              return InkWell(
+                                onTap: () {
+                                  Get.to(ProductDetailsScreen(
+                                      productModel:
+                                          homeController.productModels[index]));
+                                },
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: FittedBox(
                                     fit: BoxFit.fill,
-                                  ),
-                                  SizedBox(
-                                    height: defaultSize,
-                                  ),
-                                  FittedBox(
-                                    child: CustomText(
-                                      '\$${homeController.productModels[index].price!.toStringAsFixed(2)}',
-                                      fontSize: 30,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Image.asset(
+                                          homeController.productModels[index]
+                                              .productImages![0],
+                                          fit: BoxFit.fill,
+                                        ),
+                                        SizedBox(
+                                          height: defaultSize,
+                                        ),
+                                        FittedBox(
+                                          child: CustomText(
+                                            '\$${homeController.productModels[index].price!.toStringAsFixed(2)}',
+                                            fontSize: 30,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: defaultSize,
+                                        ),
+                                        FittedBox(
+                                          child: CustomText(
+                                              homeController
+                                                  .productModels[index].title!,
+                                              fontSize: 30),
+                                        )
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: defaultSize,
-                                  ),
-                                  FittedBox(
-                                    child: CustomText(
-                                        homeController
-                                            .productModels[index].title!,
-                                        fontSize: 30),
-                                  )
-                                ],
-                              ),
-                            ),
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
-            );
-          }),
-        ));
+                  );
+                }),
+              ));
   }
 }

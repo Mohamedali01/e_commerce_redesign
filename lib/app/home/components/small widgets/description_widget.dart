@@ -3,7 +3,7 @@ import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
-import '../../../constants.dart';
+import '../../../../constants.dart';
 class DescriptionWidget extends StatelessWidget {
   const DescriptionWidget({
     Key? key,

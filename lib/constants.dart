@@ -5,7 +5,22 @@ import 'package:get/get.dart';
 
 const kPrimaryColor = 0xff667EEA;
 
-
+final appBar = AppBar(
+  leading: Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: InkWell(
+      onTap: () {
+        Get.back();
+      },
+      child: Image.asset(
+        'assets/images/left_arrow.png',
+        scale: 1.8,
+      ),
+    ),
+  ),
+  backgroundColor: Colors.white,
+  elevation: 0.0,
+);
 
 enum SIZE { SMALL, MEDIUM, LARGE, XLARGE, XXLARGE }
 

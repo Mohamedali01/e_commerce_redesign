@@ -3,6 +3,9 @@ import 'package:e_commerce_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeController with ChangeNotifier {
+  HomeController() {
+    favorites();
+  }
 
   List<ProductModel> _productModels = [
     ProductModel(
@@ -39,7 +42,7 @@ class HomeController with ChangeNotifier {
       numberInTheStock: 135,
       numberSold: 122,
       ownerName: 'Ahmed',
-      productId: 'ahmedId',
+      productId: '1',
       productImages: [
         'assets/images/product_sample_1.png',
         'assets/images/product_sample_2.png',
@@ -60,8 +63,9 @@ class HomeController with ChangeNotifier {
       numberInTheStock: 35,
       numberSold: 12,
       ownerName: 'Mohamed',
-      productId: 'mohamedId',
-      productImages: ['assets/images/product_sample_2.png',
+      productId: '2',
+      productImages: [
+        'assets/images/product_sample_2.png',
         'assets/images/product_sample_1.png',
         'assets/images/product_sample_3.png'
       ],
@@ -80,7 +84,7 @@ class HomeController with ChangeNotifier {
       numberInTheStock: 35,
       numberSold: 12,
       ownerName: 'Khaled',
-      productId: 'khaledId',
+      productId: '3',
       productImages: ['assets/images/product_sample_3.png'],
       title: 'Woman T-Shirt',
     ),
@@ -97,7 +101,7 @@ class HomeController with ChangeNotifier {
       numberInTheStock: 135,
       numberSold: 122,
       ownerName: 'Ahmed',
-      productId: 'ahmedId',
+      productId: '4',
       productImages: ['assets/images/product_sample_1.png'],
       title: 'Man T-Shirt',
     ),
@@ -114,7 +118,7 @@ class HomeController with ChangeNotifier {
       numberInTheStock: 35,
       numberSold: 12,
       ownerName: 'Mohamed',
-      productId: 'mohamedId',
+      productId: '5',
       productImages: ['assets/images/product_sample_2.png'],
       title: 'Woman T-Shirt',
     ),
@@ -131,12 +135,37 @@ class HomeController with ChangeNotifier {
       numberInTheStock: 35,
       numberSold: 12,
       ownerName: 'Khaled',
-      productId: 'khaledId',
+      productId: '6',
       productImages: ['assets/images/product_sample_3.png'],
       title: 'Woman T-Shirt',
     ),
   ];
 
+  List<ProductModel> _favouritesModels = [];
+
   List<ProductModel> get productModels => _productModels;
 
+  List<ProductModel> get favouritesModels => _favouritesModels;
+
+  void toggleFavourites(String id) {
+    _productModels.forEach((element) {
+      if (element.productId == id) {
+        element.isFav = !element.isFav!;
+        notifyListeners();
+        favorites();
+      }
+    });
+  }
+
+  List<ProductModel> favorites() {
+    List<ProductModel> placeHolder = [];
+    _productModels.forEach((element) {
+      if (element.isFav!) {
+        placeHolder.add(element);
+      }
+    });
+    _favouritesModels = placeHolder;
+    notifyListeners();
+    return _favouritesModels;
+  }
 }
