@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-
 const kPrimaryColor = 0xff667EEA;
+const kBlackColor = 0xff565656;
 
 final appBar = AppBar(
   leading: Padding(
@@ -44,7 +44,9 @@ buildSnackBar(String title, String text) {
     ),
   );
 }
+
 final color = Colors.blueAccent;
+
 buildFlutterToast(String msg) {
   Fluttertoast.showToast(msg: msg, backgroundColor: Colors.grey);
 }

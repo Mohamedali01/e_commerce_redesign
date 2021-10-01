@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:e_commerce_app/app/Cart/control/cart_controller.dart';
 import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
 import 'package:e_commerce_app/app/auth/control/providers/auth_ui_controller.dart';
 import 'package:e_commerce_app/app/auth/control/providers/forget_password_controller.dart';
@@ -20,18 +21,19 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  // runApp(
-  //   DevicePreview(
-  //     enabled: !kReleaseMode,
-  //     builder: (context) => MyApp(),
-  //   ),
-  // );
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MyApp(),
+    ),
+  );
 
-  runApp(MyApp());
+  // runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,8 @@ class MyApp extends StatelessWidget {
             return previous!..update(value.favouritesModels);
           },
         ),
+        ChangeNotifierProvider(create: (_) => CartController()),
+
       ],
       builder: (context, child) {
         return GetMaterialApp(

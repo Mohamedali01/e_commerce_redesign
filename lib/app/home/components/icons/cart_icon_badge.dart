@@ -1,36 +1,48 @@
+import 'package:e_commerce_app/app/Cart/control/cart_controller.dart';
 import 'package:e_commerce_app/app/Cart/view/cart_screen.dart';
+import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 class CartIconBadge extends StatelessWidget {
-  const CartIconBadge({Key? key}) : super(key: key);
+  final double? size;
+
+  CartIconBadge({this.size});
 
   @override
   Widget build(BuildContext context) {
+    final cartController = Provider.of<CartController>(context);
     return InkWell(
-      onTap: (){
+      onTap: () {
         Get.to(CartScreen());
       },
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Stack(
-          children: [
-            Icon(
-              Icons.shopping_cart,
-              color: Colors.black87,
-              size: 30,
-            ),
-            Positioned(
+      child: Stack(
+        children: [
+          Icon(
+            Icons.shopping_cart,
+            color: Colors.black87,
+            size: size,
+          ),
+          Positioned(
               bottom: 2,
               right: 0,
-              child: CircleAvatar(backgroundColor: Colors.red,radius:7,
-                child: CustomText('2',color: Colors.white,fontSize: 12,),
-              )
-            )
-          ],
-        ),
+              child: CircleAvatar(
+                backgroundColor: Colors.red,
+                radius: 10,
+                child: FittedBox(
+                  child: CustomText(
+                    cartController.cartModels.length > 99
+                        ? '+99'
+                        : cartController.cartModels.length.toString(),
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ))
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/app/home/control/home_controller.dart';
 import 'package:e_commerce_app/app/home/view/product_details_screen.dart';
+import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -14,22 +15,7 @@ class BestSellScreen extends StatelessWidget {
     final defaultSize = SizeConfig.defaultSize;
     final homeController = Provider.of<HomeController>(context);
     return Scaffold(
-        appBar: AppBar(
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Image.asset(
-                'assets/images/left_arrow.png',
-                scale: 1.8,
-              ),
-            ),
-          ),
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-        ),
+        appBar: appBar,
         body: homeController.productModels.isEmpty
             ? Center(
                 child: CustomText('No Products yet'),

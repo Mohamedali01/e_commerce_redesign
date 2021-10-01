@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
 import 'package:e_commerce_app/app/home/components/icons/cart_icon_badge.dart';
 import 'package:e_commerce_app/app/home/components/icons/favourites_icon.dart';
 import 'package:e_commerce_app/app/home/components/large%20widgets/categories.dart';
@@ -22,8 +21,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     final homeController = Provider.of<HomeController>(context);
-    final authCont = Provider.of<AuthLogicController>(context);
     final defaultSize = SizeConfig.defaultSize;
+    final height = SizeConfig.screenHeight - MediaQuery
+        .of(context)
+        .padding.top;
     return Scaffold(
       appBar: AppBar(
         title: Text('HomeScreen'),
@@ -38,8 +39,15 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          FavouritesIcon(),
-          CartIconBadge(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                FavouritesIcon(size: 35,),
+                CartIconBadge(size: 35),
+              ],
+            ),
+          ),
         ],
       ),
       body: LayoutBuilder(builder: (context, constrains) {
@@ -49,7 +57,8 @@ class HomeScreen extends StatelessWidget {
             minHeight: constrains.maxHeight,
             minWidth: constrains.maxWidth,
             child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+              padding:
+              const EdgeInsets.only(left: 20, right: 20, top: 30),
               child: Column(
                 children: [
                   SearchWidget(
@@ -82,7 +91,8 @@ class HomeScreen extends StatelessWidget {
                     height: defaultSize * 2,
                   ),
                   FeaturedWidgets(
-                      defaultSize: defaultSize, homeController: homeController),
+                      defaultSize: defaultSize,
+                      homeController: homeController),
                   SizedBox(
                     height: defaultSize * 4,
                   ),
@@ -98,7 +108,8 @@ class HomeScreen extends StatelessWidget {
                     height: defaultSize * 2,
                   ),
                   FeaturedWidgets(
-                      defaultSize: defaultSize, homeController: homeController),
+                      defaultSize: defaultSize,
+                      homeController: homeController),
                 ],
               ),
             ),
@@ -108,5 +119,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
