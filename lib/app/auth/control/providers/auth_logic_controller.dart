@@ -23,13 +23,6 @@ class AuthLogicController with ChangeNotifier {
 
   Widget get returnedWidget => _returnedWidget;
 
-  String userId = '';
-  String password = '';
-  String name = '';
-  String email = '';
-  String phoneNumber = '';
-  String gender = 'KNOWN';
-  AddressModel? addressModel;
 
   bool _isLoginLoading = false;
 

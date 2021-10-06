@@ -54,7 +54,9 @@ class WelcomeScreen extends StatelessWidget {
                       Spacer(),
                       SvgPicture.asset(
                         'assets/images/welcome_image.svg',
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
+                        width: SizeConfig.screenWidth*0.5,
+                        height: SizeConfig.screenWidth*0.5,
                       ),
                       Spacer(),
                       CustomRoundedButton(

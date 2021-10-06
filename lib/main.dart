@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce_app/app/Cart/control/cart_controller.dart';
+import 'package:e_commerce_app/app/address/control/address_controller.dart';
 import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
 import 'package:e_commerce_app/app/auth/control/providers/auth_ui_controller.dart';
 import 'package:e_commerce_app/app/auth/control/providers/forget_password_controller.dart';
@@ -7,6 +8,7 @@ import 'package:e_commerce_app/app/auth/view/control_screen.dart';
 import 'package:e_commerce_app/app/home/control/home_controller.dart';
 import 'package:e_commerce_app/app/home/control/product_details_controller.dart';
 import 'package:e_commerce_app/app/home/view/featured_screen.dart';
+import 'package:e_commerce_app/app/order/control/order_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -21,19 +23,18 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MyApp(),
-    ),
-  );
+  // runApp(
+  //   DevicePreview(
+  //     enabled: !kReleaseMode,
+  //     builder: (context) => MyApp(),
+  //   ),
+  // );
 
-  // runApp(MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,16 @@ class MyApp extends StatelessWidget {
           },
         ),
         ChangeNotifierProvider(create: (_) => CartController()),
+        ChangeNotifierProvider(create: (_) => OrderController()),
+        ChangeNotifierProvider(create: (_) => AddressController()),
 
+        // ChangeNotifierProxyProvider(
+        //   create: (_) => OrderController(),
+        //   update: (BuildContext context, CartController value,
+        //       OrderController? previous) {
+        //     return previous!..update(value.cartsModels);
+        //   },
+        // ),
       ],
       builder: (context, child) {
         return GetMaterialApp(

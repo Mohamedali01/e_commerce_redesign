@@ -26,15 +26,13 @@ class CustomText extends StatelessWidget {
       height: height,
       child: Text(
         text,
-
         maxLines: maxLines,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(
-
-            color: color,
-            fontWeight: fontWeight,
-            fontSize: fontSize,
-            decoration:
-                lineThrough == true ? TextDecoration.lineThrough : null,
+          color: color,
+          fontWeight: fontWeight,
+          fontSize: fontSize,
+          decoration: lineThrough == true ? TextDecoration.lineThrough : null,
         ),
       ),
     );

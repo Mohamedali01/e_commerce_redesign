@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 
 class CustomRoundedButton extends StatelessWidget {
-  final double width;
+  final double? width;
   final Gradient? gradient;
   final Widget? child;
   final Color? color;
   final void Function() onTap;
 
   CustomRoundedButton(
-      {required this.width,
+      { this.width,
       this.gradient,
       this.child,
       this.color,
@@ -25,7 +25,7 @@ class CustomRoundedButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: color,
             gradient: gradient,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(5),
           ),
           child: child),
     );

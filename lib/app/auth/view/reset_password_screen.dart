@@ -9,6 +9,7 @@ import 'package:e_commerce_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:e_commerce_app/constants.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -65,7 +66,7 @@ class ResetPasswordScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (value) {
-                          logicController.email = value!;
+                          email = value!;
                         },
                       ),
                       Spacer(),

@@ -13,26 +13,29 @@ class ProductModel {
   int? numberOfReviews;
   int? numberInTheStock;
   int? numberSold;
-  bool? isFav =false;
-  bool? inCart= false;
+  bool isFav = false;
+  bool inCart = false;
   Color? color;
   List<SIZE>? size;
   CATEGORY? category;
 
-  ProductModel({this.productId,
-    this.ownerName,
-    this.title,
-    this.description,
-    this.productImages,
-    this.price,
-    this.salePrice,
-    this.rating,
-    this.numberOfReviews,
-    this.numberInTheStock,
-    this.numberSold,
-    this.color,
-    this.size,
-    this.category});
+  ProductModel(
+      {this.productId,
+      this.ownerName,
+      this.title,
+      this.description,
+      this.productImages,
+      this.price,
+      this.salePrice,
+      this.rating,
+      this.numberOfReviews,
+      this.numberInTheStock,
+      this.numberSold,
+      this.isFav = false,
+      this.inCart = false,
+      this.color,
+      this.size,
+      this.category});
 
   ProductModel.fromJson(Map<dynamic, dynamic>? map) {
     if (map == null)
@@ -54,5 +57,4 @@ class ProductModel {
       category = map['category'];
     }
   }
-
 }

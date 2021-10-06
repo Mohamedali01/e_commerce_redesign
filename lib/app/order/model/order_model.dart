@@ -4,7 +4,7 @@ import 'package:e_commerce_app/app/Cart/model/cart_model.dart';
 class OrderModel {
   String? userId;
   String? dateTime;
-  List<CartModel>? order;
+  CartModel? order;
   AddressModel? addressModel;
   double? productsPriceBeforeSale;
   double? productsPriceAfterSale;

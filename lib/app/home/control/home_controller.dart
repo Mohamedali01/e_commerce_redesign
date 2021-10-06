@@ -150,7 +150,7 @@ class HomeController with ChangeNotifier {
   void toggleFavourites(String id) {
     _productModels.forEach((element) {
       if (element.productId == id) {
-        element.isFav = !element.isFav!;
+        element.isFav = !element.isFav;
         notifyListeners();
         favorites();
       }
@@ -160,7 +160,7 @@ class HomeController with ChangeNotifier {
   List<ProductModel> favorites() {
     List<ProductModel> placeHolder = [];
     _productModels.forEach((element) {
-      if (element.isFav!) {
+      if (element.isFav) {
         placeHolder.add(element);
       }
     });

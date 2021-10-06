@@ -11,6 +11,7 @@ import 'package:e_commerce_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:e_commerce_app/constants.dart';
 
 class SignUpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -62,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (value) {
-                          logicController.name = value!;
+                          name = value!;
                         },
                         label: 'Name',
                         textInputType: TextInputType.text,
@@ -80,9 +81,9 @@ class SignUpScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (value) {
-                          logicController.phoneNumber = value!;
+                         phoneNumber = value!;
                           print(
-                              'Mohamed Ali Phone Number${logicController.phoneNumber}');
+                              'Mohamed Ali Phone Number${phoneNumber}');
                         },
                         label: 'Phone',
                         textInputType: TextInputType.number,
@@ -103,7 +104,7 @@ class SignUpScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (value) {
-                          logicController.email = value!;
+                          email = value!;
                         },
                       ),
                       SizedBox(
@@ -134,7 +135,7 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                         onSaved: (value) {
-                          logicController.password = value!;
+                          password = value!;
                         },
                       ),
                       SizedBox(

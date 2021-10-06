@@ -33,7 +33,7 @@ class ImageProductDetailsWidget extends StatelessWidget {
               homeController.toggleFavourites(productModel!.productId!);
             },
             icon: Icon(
-              productModel!.isFav! ? Icons.favorite : Icons.favorite_border,
+              productModel!.isFav ? Icons.favorite : Icons.favorite_border,
               color: Colors.red,
               size: 35,
             ),
