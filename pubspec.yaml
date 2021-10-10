@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  sqflite: ^2.0.0+4
   shared_preferences: ^2.0.7
   page_view_dot_indicator: ^1.0.0
   flutter_advanced_drawer: ^1.2.3+1

@@ -47,11 +47,13 @@ class OrderController with ChangeNotifier {
       if (!found) {
         _orderModels.add(OrderModel(
             addressModel: AddressModel(
-                area: '',
+              addressId: '',
                 city: '',
                 country: '',
-                numberOfHouse: 23,
-                numberOfRoad: 12),
+              phoneNumber: '',
+              postalCode: '',
+              address: '',
+                ),
             dateTime: DateTime.now().toString(),
             order: cartModels[i],
             productsPriceAfterSale: calculateOrderAfterSale(),

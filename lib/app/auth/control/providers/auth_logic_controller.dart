@@ -23,7 +23,6 @@ class AuthLogicController with ChangeNotifier {
 
   Widget get returnedWidget => _returnedWidget;
 
-
   bool _isLoginLoading = false;
 
   bool get isLoginLoading => _isLoginLoading;
@@ -57,8 +56,15 @@ class AuthLogicController with ChangeNotifier {
         UserCredential userCredential = await _auth
             .createUserWithEmailAndPassword(email: email, password: password);
         userId = userCredential.user!.uid;
-        addressModel = AddressModel(
-            numberOfHouse: 0, country: '', city: '', area: '', numberOfRoad: 0);
+        addressModel = [
+          AddressModel(
+              addressId: DateTime.now().toString() + phoneNumber + email,
+              postalCode: '',
+              address: '',
+              country: '',
+              city: '',
+              phoneNumber: phoneNumber),
+        ];
         notifyListeners();
         UserModel userModel = UserModel(
             email: email,
@@ -71,6 +77,7 @@ class AuthLogicController with ChangeNotifier {
         await AuthRemoteDatabase.saveUserDataRemotely(userModel);
         await AuthLocalDatabase.saveDataLocally(userModel);
         await ResetPassLocalDatabase.saveDataLocally(true);
+
         _isSignUpLoading = false;
         notifyListeners();
         Get.offAll(HomeScreen());

@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             backdropColor: Colors.deepPurple.shade400,
             controller: _advancedDrawerController,
             animationCurve: Curves.easeInOut,
-            animationDuration: const Duration(milliseconds: 600),
+            animationDuration: const Duration(milliseconds: 300),
             animateChildDecoration: true,
             rtlOpening: false,
             disabledGestures: false,

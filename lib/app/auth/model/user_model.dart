@@ -6,7 +6,7 @@ class UserModel {
   String? name;
   String? phoneNumber;
   String? gender;
-  AddressModel? addressModel;
+  List<AddressModel>? addressModel;
 
   UserModel(
       {this.userId,
@@ -20,10 +20,11 @@ class UserModel {
     if (map == null)
       return;
     else {
+      List<dynamic> list = map['addressModel'];
       email = map['email'];
       name = map['name'];
       userId = map['userId'];
-      addressModel = AddressModel.fromJson(map['addressModel']);
+      addressModel = list.map((e) => AddressModel.fromJson(e)).toList();
       gender = map['gender'];
       phoneNumber = map['phoneNumber'];
     }
@@ -34,7 +35,7 @@ class UserModel {
       'userId': userId,
       'email': email,
       'name': name,
-      'addressModel': addressModel!.toJson(),
+      'addressModel': addressModel!.map((e) => e.toJson()).toList(),
       'gender': gender,
       'phoneNumber': phoneNumber
     };

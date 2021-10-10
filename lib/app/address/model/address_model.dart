@@ -1,36 +1,42 @@
 class AddressModel {
-  String? country;
-  String? city;
-  String? area;
-  int? numberOfHouse;
-  int? numberOfRoad;
 
-  AddressModel(
-      {this.country,
-      this.city,
-      this.area,
-      this.numberOfHouse,
-      this.numberOfRoad});
+  String? addressId;
+  String? address;
+  String? city;
+  String? country;
+  String? phoneNumber;
+  String? postalCode;
+
+  AddressModel({
+    this.addressId,
+    this.city,
+    this.country,
+    this.address,
+    this.phoneNumber,
+    this.postalCode,
+  });
 
   AddressModel.fromJson(Map<dynamic, dynamic>? map) {
     if (map == null)
       return;
     else {
-      country = map['country'];
+      addressId = map['addressId'];
+      address = map['address'];
       city = map['city'];
-      area = map['area'];
-      numberOfHouse = map['numberOfHouse'];
-      numberOfRoad = map['numberOfRoad'];
+      country = map['country'];
+      phoneNumber = map['phoneNumber'];
+      postalCode = map['postalCode'];
     }
   }
 
   toJson() {
     return {
-      'country': country,
+      'addressId': addressId,
+      'address': address,
       'city': city,
-      'area': area,
-      'numberOfHouse': numberOfHouse,
-      'numberOfRoad': numberOfRoad,
+      'country': country,
+      'phoneNumber': phoneNumber,
+      'postalCode': postalCode,
     };
   }
 }

@@ -60,7 +60,7 @@ String name = '';
 String email = '';
 String phoneNumber = '';
 String gender = 'KNOWN';
-AddressModel? addressModel;
+List<AddressModel>? addressModel;
 List<CartModel> cartModels = [
   CartModel(
       title: 'Shirt',
@@ -159,3 +159,12 @@ List<CartModel> cartModels = [
       cartId: '4',
       quantity: 20),
 ];
+
+
+// CartTable
+final String cartTable = 'cart';
+final String columnId = 'cartId';
+final String columnName = 'name';
+final String columnImage = 'image';
+final String columnPrice = 'price';
+final String columnQuantity = 'quantity';

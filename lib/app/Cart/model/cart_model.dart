@@ -30,4 +30,16 @@ class CartModel {
       salePrice = map['salePrice'];
     }
   }
+
+  toJson(){
+    return{
+      'cartId':cartId,
+      'ownerName':ownerName,
+      'title':title,
+      'image':image,
+      'quantity':quantity,
+      'price':price,
+      'salePrice':salePrice,
+    };
+  }
 }

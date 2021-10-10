@@ -83,7 +83,7 @@ class SignUpScreen extends StatelessWidget {
                         onSaved: (value) {
                          phoneNumber = value!;
                           print(
-                              'Mohamed Ali Phone Number${phoneNumber}');
+                              'Mohamed Ali Phone Number$phoneNumber');
                         },
                         label: 'Phone',
                         textInputType: TextInputType.number,
