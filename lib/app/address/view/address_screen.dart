@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/app/address/control/address_controller.dart';
 import 'package:e_commerce_app/app/address/view/create_address_screen.dart';
+import 'package:e_commerce_app/app/payment/view/payment_screen.dart';
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_rounded_button.dart';
@@ -44,7 +45,9 @@ class AddressScreen extends StatelessWidget {
               ),
             ),
             CustomRoundedButton(
-              onTap: () {},
+              onTap: () {
+                Get.to(PaymentScreen());
+              },
               gradient: gradient,
               child: Center(
                 child: CustomText(

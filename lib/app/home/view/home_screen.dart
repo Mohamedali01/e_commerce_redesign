@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
     final authController = Provider.of<AuthLogicController>(context);
     final defaultSize = SizeConfig.defaultSize;
     return authController.isLogOutLoading
-        ? Center(child: CircularProgressIndicator())
+        ? Scaffold(body: Center(child: CircularProgressIndicator()))
         : AdvancedDrawer(
             backdropColor: Colors.deepPurple.shade400,
             controller: _advancedDrawerController,

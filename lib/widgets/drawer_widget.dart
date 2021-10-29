@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/app/Cart/view/cart_screen.dart';
 import 'package:e_commerce_app/app/auth/control/providers/auth_logic_controller.dart';
 import 'package:e_commerce_app/app/home/components/drawer_list_tile.dart';
+import 'package:e_commerce_app/app/home/view/favourites_screen.dart';
 import 'package:e_commerce_app/app/order/view/order_screen.dart';
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/size_config.dart';
@@ -64,6 +65,13 @@ class DrawerWidget extends StatelessWidget {
                   ),
                   DrawerListTile(
                     onTap: () {
+                      Get.to(FavouritesScreen());
+                    },
+                    title: 'Favorites',
+                    leading: Icons.favorite,
+                  ),
+                  DrawerListTile(
+                    onTap: () {
                       Get.to(CartScreen());
                     },
                     title: 'Cart',
@@ -73,12 +81,12 @@ class DrawerWidget extends StatelessWidget {
                     onTap: () {
                       Get.to(OrderScreen());
                     },
-                    title: 'Order',
+                    title: 'Orders',
                     leading: Icons.reorder,
                   ),
                   DrawerListTile(
                     onTap: () {},
-                    title: 'CheckOut',
+                    title: 'Check out',
                     leading: Icons.attach_money,
                   ),
                   DrawerListTile(

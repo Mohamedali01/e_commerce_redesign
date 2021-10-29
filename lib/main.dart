@@ -19,10 +19,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
-
+;
   // runApp(
   //   DevicePreview(
   //     enabled: !kReleaseMode,

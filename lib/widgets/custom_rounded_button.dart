@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/size_config.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,10 +18,11 @@ class CustomRoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
       onTap: onTap,
       child: Container(
-          height: 50,
+          height: SizeConfig.screenHeight *0.06,
           width: width,
           decoration: BoxDecoration(
             color: color,
