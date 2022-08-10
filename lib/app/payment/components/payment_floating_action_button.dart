@@ -1,7 +1,9 @@
+import 'package:e_commerce_app/app/payment/view/checkout_screen.dart';
 import 'package:e_commerce_app/core/size_config.dart';
 import 'package:e_commerce_app/widgets/custom_rounded_button.dart';
 import 'package:e_commerce_app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../constants.dart';
 
@@ -20,7 +22,8 @@ class PaymentFloatingActionButton extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Container(
               decoration: BoxDecoration(
-                  border: Border.all(color: Color(kPrimaryColor), width: 1)),
+                border: Border.all(color: Color(kPrimaryColor), width: 1),
+              ),
               child: CustomRoundedButton(
                 onTap: () {
                   // Get.to(CreateAddressScreen());
@@ -38,7 +41,7 @@ class PaymentFloatingActionButton extends StatelessWidget {
           ),
           CustomRoundedButton(
             onTap: () {
-              // Get.to(PaymentScreen());
+              Get.to(CheckoutScreen());
             },
             gradient: gradient,
             child: Center(

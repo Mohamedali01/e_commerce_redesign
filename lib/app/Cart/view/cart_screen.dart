@@ -22,24 +22,25 @@ class CartScreen extends StatelessWidget {
     final defaultSize = SizeConfig.defaultSize;
     return Scaffold(
       appBar: appBar,
-      floatingActionButton: cartModels.isNotEmpty?
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: CustomRoundedButton(
-          onTap: () {
-            Get.to(AddressScreen());
-          },
-          // width: SizeConfig.screenWidth * 0.9,
-          child: Center(
-            child: CustomText(
-              'Continue',
-              color: Colors.white,
-              fontSize: defaultSize * 2.5,
-            ),
-          ),
-          gradient: gradient,
-        ),
-    ):null,
+      floatingActionButton: cartModels.isNotEmpty
+          ? Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomRoundedButton(
+                onTap: () {
+                  Get.to(AddressScreen());
+                },
+                // width: SizeConfig.screenWidth * 0.9,
+                child: Center(
+                  child: CustomText(
+                    'Continue',
+                    color: Colors.white,
+                    fontSize: defaultSize * 2.5,
+                  ),
+                ),
+                gradient: gradient,
+              ),
+            )
+          : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SingleChildScrollView(
         child: Padding(

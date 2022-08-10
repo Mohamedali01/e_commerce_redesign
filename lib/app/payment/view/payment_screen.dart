@@ -94,28 +94,6 @@ class PaymentScreen extends StatelessWidget {
 
                             ),
 
-                            // ListTile(
-                            //   title: CustomText(
-                            //     'Discount', color: Colors.black45,
-                            //     fontSize: defaultSize * 1.8,),
-                            //   trailing: CustomText(
-                            //     '16.00', fontSize: defaultSize * 1.5,),
-                            // ),
-                            // ListTile(
-                            //   title: CustomText(
-                            //     'Shipping', color: Colors.black45,
-                            //     fontSize: defaultSize * 1.8,),
-                            //   trailing: CustomText(
-                            //     '16.00', fontSize: defaultSize * 1.5,),
-                            // ),
-                            // Divider(thickness: 1,
-                            //   color: Colors.grey.shade400,),
-                            // ListTile(
-                            //   title: CustomText(
-                            //     'Total', fontSize: defaultSize * 1.8,),
-                            //   trailing: CustomText(
-                            //     '16.00', fontSize: defaultSize * 1.5,),
-                            // ),
                           ],
                         );
                       }),
@@ -133,3 +111,25 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 }
+// ListTile(
+//   title: CustomText(
+//     'Discount', color: Colors.black45,
+//     fontSize: defaultSize * 1.8,),
+//   trailing: CustomText(
+//     '16.00', fontSize: defaultSize * 1.5,),
+// ),
+// ListTile(
+//   title: CustomText(
+//     'Shipping', color: Colors.black45,
+//     fontSize: defaultSize * 1.8,),
+//   trailing: CustomText(
+//     '16.00', fontSize: defaultSize * 1.5,),
+// ),
+// Divider(thickness: 1,
+//   color: Colors.grey.shade400,),
+// ListTile(
+//   title: CustomText(
+//     'Total', fontSize: defaultSize * 1.8,),
+//   trailing: CustomText(
+//     '16.00', fontSize: defaultSize * 1.5,),
+// ),
